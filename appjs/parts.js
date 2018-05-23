@@ -32,6 +32,8 @@ angular.module('PartAppUI').controller('PartsController', ['$http', '$log', '$sc
                 // This is the error function
                 // If we get here, some error occurred.
                 // Verify which was the cause and show an alert.
+                console.log("Err response: " + JSON.stringify(response));
+
                 var status = response.status;
                 if (status == 0){
                     alert("No hay conexion a Internet");
@@ -54,7 +56,11 @@ angular.module('PartAppUI').controller('PartsController', ['$http', '$log', '$sc
         };
         this.partDetails = function (pid) {
             $location.url('/partsdetails/' + pid);
-        }
+        };
+        // got to screen to add new parts
+        this.addPart = function(){
+            $location.url('/newpart');
+        };
         this.loadParts();
 
 }]);

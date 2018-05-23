@@ -11,6 +11,10 @@
             templateUrl: 'pages/partdetails.html',
             controller: 'PartsDetailController',
             controllerAs : 'partsDetailCtrl'
+        }).when('/newpart', {
+            templateUrl: 'pages/newpart.html',
+            controller: 'NewPartController',
+            controllerAs : 'newPartCtrl'
         }).otherwise({
             redirectTo: '/parts'
         });
