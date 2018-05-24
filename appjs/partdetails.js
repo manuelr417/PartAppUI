@@ -1,8 +1,8 @@
 /**
  * Created by manuel on 4/24/18.
  */
-angular.module('PartAppUI').controller('PartsDetailController', ['$http', '$log', '$scope', '$location', '$routeParams',
-    function($http, $log, $scope, $location, $routeParams) {
+angular.module('PartAppUI').controller('PartsDetailController', ['$http', '$log', '$scope', '$rootScope', '$location', '$routeParams',
+    function($http, $log, $scope, $rootScope, $location, $routeParams) {
         // This variable lets you access this controller
         // from within the callbacks of the $http object
 
@@ -27,6 +27,7 @@ angular.module('PartAppUI').controller('PartsDetailController', ['$http', '$log'
                     console.log("data: " + JSON.stringify(response.data));
                     // assing the part details to the variable in the controller
                     thisCtrl.partDetails = response.data.Part;
+                    console.log("La prueba: " + $rootScope.prueba);
                 }, //Error function
                 function (response) {
                     // This is the error function

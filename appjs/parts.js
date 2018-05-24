@@ -1,14 +1,14 @@
 /**
  * Created by manuel on 4/24/18.
  */
-angular.module('PartAppUI').controller('PartsController', ['$http', '$log', '$scope', '$location',
-    function($http, $log, $scope, $location) {
+angular.module('PartAppUI').controller('PartsController', ['$http', '$log', '$scope', '$rootScope', '$location',
+    function($http, $log, $scope, $rootScope, $location) {
         var thisCtrl = this;
 
         this.partList = [];
         this.counter  = 2;
         this.newText = "";
-
+        $rootScope.prueba = "";
         this.loadParts = function(){
             // Get the list of parts from the servers via REST API
 
@@ -26,7 +26,7 @@ angular.module('PartAppUI').controller('PartsController', ['$http', '$log', '$sc
                     console.log("response: " + JSON.stringify(response));
 
                     thisCtrl.partList = response.data.Parts;
-
+                    $rootScope.prueba = "Proando";
             }, // error callback
             function (response){
                 // This is the error function
